@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5758258222252704097}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1177910298882160810}
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!33 &1732833960740473447
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1177910298882160810}
   - component: {fileID: 4946847061770328373}
   - component: {fileID: 2985987641049882772}
-  - component: {fileID: 5563583983875474499}
+  - component: {fileID: 1949578653956850747}
   m_Layer: 0
   m_Name: bullet
   m_TagString: bullet
@@ -110,14 +110,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362854244743000415}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16.53}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.42547, y: 0.42547, z: 0.42547}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2008368341351891498}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &4946847061770328373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,23 +166,19 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5050448
   m_Height: 1.9984738
-  m_Direction: 0
+  m_Direction: 2
   m_Center: {x: 0.011290028, y: -0.015509859, z: -0.00849962}
---- !u!114 &5563583983875474499
+--- !u!114 &1949578653956850747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362854244743000415}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 856de89e48367fe4284a0647f640aab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  shootInterval: 5
   bulletSpeed: 10
   bulletLifeTime: 2
-  player: {fileID: 0}
-  firePoint: {fileID: 0}
