@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class eat : MonoBehaviour
+
 {
+    public PowerUpController PowerUpController;
+    public changeForm changeForm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,13 @@ public class eat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsEnemyNear())
         {
-            EatEnemy();
+            if(PowerUpController.niumNium == true && changeForm.normalForm == true )
+            {
+                 EatEnemy();
+            }
+            
+
+            
         }
     }
 
@@ -40,7 +50,7 @@ public class eat : MonoBehaviour
             if (hitCollider.CompareTag("Enemy"))
             {
                 Destroy(hitCollider.gameObject);
-                // Aquí puedes agregar código para recompensar al jugador por comer al enemigo
+                // agregar aca codigo para robar atributos del enemigo comido.
             }
         }
     }
