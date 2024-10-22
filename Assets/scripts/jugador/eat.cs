@@ -6,7 +6,7 @@ public class eat : MonoBehaviour
 
 {
     public PowerUpController PowerUpController;
-    public changeForm changeForm;
+    public changeBall changeBall;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,10 @@ public class eat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsEnemyNear())
         {
-            if(PowerUpController.niumNium == true && changeForm.normalForm == true )
+            if(PowerUpController.niumNium == true && changeBall.normalForm == false )
             {
                  EatEnemy();
+                  
             }
             
 

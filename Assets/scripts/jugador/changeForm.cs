@@ -12,12 +12,13 @@ public class changeForm : MonoBehaviour
     public bool normalForm = true; // Bandera para saber si es cápsula o esfera
     public playerMovement playerMovement; // Referencia al script PlayerMovement
     public pastilla pastilla; //referencia al script pastilla
-
+    public GameObject player;
+    public GameObject esfera;
 
 
     void Start()
     {
-
+        
         
         meshFilter = GetComponent<MeshFilter>(); // Obtiene el MeshFilter
         playerMovement = GetComponent<playerMovement>(); // Obtiene el script PlayerMovement
@@ -30,19 +31,12 @@ public class changeForm : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q)) // Si se presiona la tecla Q
             {
-                // Cambia el mesh del MeshFilter
-                if ( normalForm)
-                {
-                    meshFilter.mesh = meshEsfera;
-                    normalForm = false;
-                    playerMovement.speed = 20f; // Aumenta la velocidad cuando es esfera
-                }
-                else
-                {
-                    meshFilter.mesh = meshCapsula;
-                    normalForm = true;
-                    playerMovement.speed = 10f; // Restablece la velocidad cuando es cápsula
-                }
+                // Cambia el mesh del player por el mesh de la esfera
+                //rendererPlayer.enabled = !rendererPlayer.enabled;
+                //rendererEsfera.enabled = !rendererfluffy.enabled;
+
+                // Cambia el mesh del player
+                //GetComponent<MeshFilter>().mesh = rendererPlayer.enabled ? meshCapsula : meshEsfera;
             }
         }
 

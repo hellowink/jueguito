@@ -7,9 +7,13 @@ public class powerUpBar : MonoBehaviour
 {
     public Image powerUp;
 
+    
+
     public float powerActually = 0;
 
     public float powerMax= 10;
+
+    public float powerMin = 0;
 
     
 

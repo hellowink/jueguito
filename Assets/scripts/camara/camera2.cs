@@ -10,7 +10,6 @@ public class camera2 : MonoBehaviour
     public float distance = 5f; // Distancia entre la cámara y el jugador
     public float height = 2f; // Altura de la cámara respecto al jugador
     public float sensitivity = 5f; // Sensibilidad del movimiento de la cámara
-    
 
     private float mouseX = 0f;
     private float mouseY = 0f;
@@ -31,7 +30,7 @@ public class camera2 : MonoBehaviour
     void LateUpdate()
     {
         // Actualiza la posición de la cámara
-        transform.position = player.position - transform.forward * distance + new Vector3(0, height, distance);
+        transform.position = player.position - transform.forward * distance + new Vector3(0, height, 0);
 
         // Actualiza la rotación de la cámara
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
