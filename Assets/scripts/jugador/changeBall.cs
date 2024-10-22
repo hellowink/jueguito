@@ -5,6 +5,8 @@ using UnityEngine;
 public class changeBall : MonoBehaviour
 {
 
+    public playerMovement playerMovement;
+
     public pastilla pastilla;
 
     public bool normalForm = true;
@@ -31,6 +33,8 @@ public class changeBall : MonoBehaviour
 
             if (pastilla.grajea == true)
             {
+                
+
                 // Cambia el mesh del player por el mesh de la esfera
                 rendererPlayer.enabled = !rendererPlayer.enabled;
 
@@ -38,7 +42,9 @@ public class changeBall : MonoBehaviour
 
                 normalForm = !normalForm;
             }
+
             
+
         }
     }
 
