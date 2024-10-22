@@ -19,7 +19,7 @@ public class eat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsEnemyNear())
         {
-            if(PowerUpController.niumNium == true && changeBall.normalForm == false )
+            if(PowerUpController.niumNium == true && changeBall.normalForm == true )
             {
                  EatEnemy();
                   

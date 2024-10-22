@@ -26,7 +26,7 @@ public class PowerUpController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (changeBall.normalForm && collision.gameObject.tag == enemyTag)
+        if (!changeBall.normalForm && collision.gameObject.tag == enemyTag)
         {
             powerUpBar.SumarPoder(2);
             Destroy(collision.gameObject); // Opcional: Destruir al enemigo después de la colisión

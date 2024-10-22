@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 56.690002
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 56.690002
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 56.690002
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
       propertyPath: m_Name
-      value: fluffy_ball Variant
+      value: fluffy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 792802d1fc9906647a4cf8aa80a16efc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
