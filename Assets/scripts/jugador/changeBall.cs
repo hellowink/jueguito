@@ -5,6 +5,10 @@ using UnityEngine;
 public class changeBall : MonoBehaviour
 {
 
+    public playerMovement playerMovement;
+
+    public pastilla pastilla;
+
     public bool normalForm = true;
 
     public GameObject esfera; // Asigna el objeto de la esfera en el inspector
@@ -26,12 +30,21 @@ public class changeBall : MonoBehaviour
         // Cuando se presiona la tecla Q
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Cambia el mesh del player por el mesh de la esfera
-            rendererPlayer.enabled = !rendererPlayer.enabled;
 
-            esfera.SetActive(!esfera.activeSelf);
+            if (pastilla.grajea == true)
+            {
+                
 
-            normalForm = !normalForm;
+                // Cambia el mesh del player por el mesh de la esfera
+                rendererPlayer.enabled = !rendererPlayer.enabled;
+
+                esfera.SetActive(!esfera.activeSelf);
+
+                normalForm = !normalForm;
+            }
+
+            
+
         }
     }
 
