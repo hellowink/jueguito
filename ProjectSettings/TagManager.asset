@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - grajea
   - bullet
+  - paredHielo
   layers:
   - Default
   - TransparentFX

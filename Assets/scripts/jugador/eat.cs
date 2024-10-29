@@ -7,6 +7,8 @@ public class eat : MonoBehaviour
 {
     public PowerUpController PowerUpController;
     public changeBall changeBall;
+    public bool powerOfFire = false;
+    public powerUpBar powerUpBar;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,9 @@ public class eat : MonoBehaviour
         {
             if(PowerUpController.niumNium == true && changeBall.normalForm == true )
             {
-                 EatEnemy();
+                EatEnemy();
+                powerOfFire = true;
+                powerUpBar.powerActually = powerUpBar.powerMin;
                   
             }
             
