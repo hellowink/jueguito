@@ -31,21 +31,36 @@ public class changeBall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
 
-            if (pastilla.grajea == true)
+            if (pastilla.grajea)
             {
+
+                Morph();
                 
-
-                // Cambia el mesh del player por el mesh de la esfera
-                rendererPlayer.enabled = !rendererPlayer.enabled;
-
-                esfera.SetActive(!esfera.activeSelf);
-
-                normalForm = !normalForm;
             }
 
-            
+
 
         }
+
+        if (!pastilla.grajea && !rendererPlayer.enabled )
+        {
+            Morph();
+        }
+
+
+
+
+
+    }
+
+    public void Morph()
+    {
+        // Cambia el mesh del player por el mesh de la esfera
+        rendererPlayer.enabled = !rendererPlayer.enabled;
+
+        esfera.SetActive(!esfera.activeSelf);
+
+        normalForm = !normalForm;
     }
 
 }
