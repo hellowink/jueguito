@@ -10,9 +10,12 @@ public class camera2 : MonoBehaviour
     public float distance = 5f; // Distancia entre la cámara y el jugador
     public float height = 2f; // Altura de la cámara respecto al jugador
     public float sensitivity = 5f; // Sensibilidad del movimiento de la cámara
+    public float playerRotationSpeed = 5f;
 
     private float mouseX = 0f;
     private float mouseY = 0f;
+
+
 
 
     // Start is called before the first frame update
@@ -37,5 +40,8 @@ public class camera2 : MonoBehaviour
         mouseY += Input.GetAxis("Mouse Y") * sensitivity;
         mouseY = Mathf.Clamp(mouseY, -90f, 90f);
         transform.rotation = Quaternion.Euler(-mouseY, mouseX, 0);
+
+        //actualiza la rotacion del player
+        player.rotation = Quaternion.Euler(0, mouseX, 0);
     }
 }

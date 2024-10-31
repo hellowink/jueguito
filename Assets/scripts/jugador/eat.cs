@@ -9,6 +9,10 @@ public class eat : MonoBehaviour
     public changeBall changeBall;
     public bool powerOfFire = false;
     public powerUpBar powerUpBar;
+    public Renderer rendererPlayer;
+    public Material materialFurby;
+    public Material materialFireMonster;
+    private bool esFurby = true; //estado base
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,10 @@ public class eat : MonoBehaviour
                 EatEnemy();
                 powerOfFire = true;
                 powerUpBar.powerActually = powerUpBar.powerMin;
+                //cambia el material
+                rendererPlayer.material = esFurby ? materialFireMonster : materialFurby;
+                esFurby = !esFurby;
+
                   
             }
             

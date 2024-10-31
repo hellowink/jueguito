@@ -6,10 +6,10 @@ public class playerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
 
-    
-       
 
-    void Update()
+
+
+    /*void Update()
     {
         // Obtén la dirección de la cámara
         Vector3 cameraDirection = Camera.main.transform.forward;
@@ -90,6 +90,27 @@ public class playerMovement : MonoBehaviour
             diagonalDirection.Normalize();
             transform.position -= diagonalDirection * speed * Time.deltaTime;
         }
+    }*/
+
+    void Update()
+    {
+        // Obtén la dirección de la cámara
+        Vector3 cameraDirection = Camera.main.transform.forward;
+        cameraDirection.y = 0;
+        cameraDirection.Normalize();
+
+        // Variables para almacenar el movimiento horizontal y vertical
+        float horizontal = -Input.GetAxis("Horizontal"); // Invierte el eje horizontal
+        float vertical = Input.GetAxis("Vertical");
+
+        // Calcula la dirección del movimiento
+        Vector3 movementDirection = horizontal * Vector3.Cross(cameraDirection, Vector3.up) + vertical * cameraDirection;
+
+        // Normaliza la dirección del movimiento
+        movementDirection.Normalize();
+
+        // Mueve el personaje
+        transform.position += movementDirection * speed * Time.deltaTime;
     }
 
 
