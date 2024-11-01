@@ -14,15 +14,25 @@ public class playerLife : MonoBehaviour
     public int lifeActually = 10;
 
     // Update is called once per frame
+    public void GetDamage(int cantidad)
+    {
+        lifeActually -= cantidad;
+
+        if (lifeActually < lifeMin)
+        {
+            lifeActually = lifeMin;
+            Debug.Log("¡El jugador ha muerto!");
+            Destroy(gameObject);
+        }
+
+        Debug.Log("Vida restante: " + lifeActually);
+    }
+
     void Update()
     {
-        if (lifeActually<= lifeMin)
+        if (lifeActually <= lifeMin)
         {
             lifeActually = 0;
-
-            Destroy(gameObject);
-
-                
         }
     }
 }
