@@ -25,10 +25,10 @@ public class eat : MonoBehaviour
     void Update()
     {
         // Cuando se presiona la tecla espacio
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && powerUpBar.powerActually == powerUpBar.powerMax)
         {
             // Inicia el coroutine para cambiar el material
-            StartCoroutine(CambiarMaterialTemporal());
+            
             EatEnemy();
             powerOfFire = true;
             powerUpBar.powerActually = powerUpBar.powerMin;
@@ -73,6 +73,7 @@ public class eat : MonoBehaviour
             {
                 Destroy(hitCollider.gameObject);
                 // agregar aca codigo para robar atributos del enemigo comido.
+                StartCoroutine(CambiarMaterialTemporal());
             }
         }
     }
