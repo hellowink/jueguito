@@ -35,6 +35,7 @@ public class changeBall : MonoBehaviour
             {
 
                 Morph();
+                playerMovement.speed = 15;
                 
             }
 
@@ -42,13 +43,21 @@ public class changeBall : MonoBehaviour
 
         }
 
+
+
+
         if (!pastilla.grajea && !rendererPlayer.enabled )
         {
             Morph();
+            playerMovement.speed = 10;
         }
 
 
-
+        if (Input.GetKeyDown(KeyCode.Q) && rendererPlayer.enabled)
+        {
+            
+            playerMovement.speed = 10;
+        }
 
 
     }

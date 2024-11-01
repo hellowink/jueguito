@@ -5,7 +5,10 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float drag = 5.0f; // Freno
 
+    private Vector3 movementDirection;
+    private Rigidbody rb;
 
 
 
@@ -92,6 +95,13 @@ public class playerMovement : MonoBehaviour
         }
     }*/
 
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         // Obtén la dirección de la cámara
@@ -100,17 +110,23 @@ public class playerMovement : MonoBehaviour
         cameraDirection.Normalize();
 
         // Variables para almacenar el movimiento horizontal y vertical
-        float horizontal = -Input.GetAxis("Horizontal"); // Invierte el eje horizontal
+        float horizontal = -Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         // Calcula la dirección del movimiento
-        Vector3 movementDirection = horizontal * Vector3.Cross(cameraDirection, Vector3.up) + vertical * cameraDirection;
-
-        // Normaliza la dirección del movimiento
+        movementDirection = horizontal * Vector3.Cross(cameraDirection, Vector3.up) + vertical * cameraDirection;
         movementDirection.Normalize();
 
         // Mueve el personaje
-        transform.position += movementDirection * speed * Time.deltaTime;
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            rb.velocity = movementDirection * speed;
+        }
+        else
+        {
+            // Frena el personaje
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, drag * Time.deltaTime);
+        }
     }
 
 

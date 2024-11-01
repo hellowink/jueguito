@@ -13,6 +13,7 @@ public class eat : MonoBehaviour
     public Material materialFurby;
     public Material materialFireMonster;
     private bool esFurby = true; //estado base
+    private float tiempoCambiarMaterial = 4f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,23 +24,31 @@ public class eat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsEnemyNear())
+        // Cuando se presiona la tecla espacio
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(PowerUpController.niumNium == true && changeBall.normalForm == true )
-            {
-                EatEnemy();
-                powerOfFire = true;
-                powerUpBar.powerActually = powerUpBar.powerMin;
-                //cambia el material
-                rendererPlayer.material = esFurby ? materialFireMonster : materialFurby;
-                esFurby = !esFurby;
-
-                  
-            }
-            
-
-            
+            // Inicia el coroutine para cambiar el material
+            StartCoroutine(CambiarMaterialTemporal());
+            EatEnemy();
+            powerOfFire = true;
+            powerUpBar.powerActually = powerUpBar.powerMin;
         }
+    }
+
+    IEnumerator CambiarMaterialTemporal()
+    {
+        // Guarda el material actual
+        Material materialActual = rendererPlayer.material;
+
+        // Cambia el material
+        rendererPlayer.material = esFurby ? materialFireMonster : materialFurby;
+        esFurby = !esFurby;
+
+        // Espera 4 segundos
+        yield return new WaitForSeconds(tiempoCambiarMaterial);
+
+        // Vuelve al material anterior
+        rendererPlayer.material = materialActual;
     }
 
     bool IsEnemyNear()
