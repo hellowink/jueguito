@@ -7,7 +7,7 @@ public class menuPrincipal : MonoBehaviour
 {
     public void gameStart(string levelOne)
     {
-        SceneManager.LoadScene(levelOne);
+        SceneManager.LoadScene("levelOne");
         Debug.Log("Cambio de escena");
     }
     public void Quit()
