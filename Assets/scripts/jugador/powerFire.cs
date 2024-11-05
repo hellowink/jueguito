@@ -14,7 +14,7 @@ public class powerFire : MonoBehaviour
         if (collision.gameObject.tag == paredHieloTag)
         {
             // Verifica si la barra de poder está llena
-            if (eat.powerOfFire)
+            if (eat.powerOfFire == true)
             {
                 // Destruye la paredHielo
                 Destroy(collision.gameObject);

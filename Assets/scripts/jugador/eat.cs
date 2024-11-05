@@ -30,7 +30,7 @@ public class eat : MonoBehaviour
             // Inicia el coroutine para cambiar el material
             
             EatEnemy();
-            powerOfFire = true;
+            
             powerUpBar.powerActually = powerUpBar.powerMin;
         }
     }
@@ -46,9 +46,12 @@ public class eat : MonoBehaviour
 
         // Espera 4 segundos
         yield return new WaitForSeconds(tiempoCambiarMaterial);
+        powerOfFire = false;
 
         // Vuelve al material anterior
         rendererPlayer.material = materialActual;
+
+
     }
 
     bool IsEnemyNear()
@@ -72,6 +75,7 @@ public class eat : MonoBehaviour
             if (hitCollider.CompareTag("Enemy"))
             {
                 Destroy(hitCollider.gameObject);
+                powerOfFire = true;
                 // agregar aca codigo para robar atributos del enemigo comido.
                 StartCoroutine(CambiarMaterialTemporal());
             }

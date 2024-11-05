@@ -15,4 +15,10 @@ public class menuPrincipal : MonoBehaviour
         Application.Quit();
         Debug.Log("Se sale");
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("levelOne");
+        Debug.Log("Cambio de escena");
+    }
 }
