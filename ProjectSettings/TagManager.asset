@@ -8,6 +8,9 @@ TagManager:
   - grajea
   - bullet
   - paredHielo
+  - Trampa
+  - pick
+  - EnemyIce
   layers:
   - Default
   - TransparentFX

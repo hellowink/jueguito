@@ -12,6 +12,7 @@ public class eat : MonoBehaviour
     public Renderer rendererPlayer;
     public Material materialFurby;
     public Material materialFireMonster;
+    public Material materialIceWall;
     private bool esFurby = true; //estado base
     private float tiempoCambiarMaterial = 4f;
 
@@ -54,6 +55,25 @@ public class eat : MonoBehaviour
 
     }
 
+    IEnumerator CambiarMaterialTemporalIce()
+    {
+        // Guarda el material actual
+        Material materialActual = rendererPlayer.material;
+
+        // Cambia el material
+        rendererPlayer.material = esFurby ? materialIceWall : materialFurby;
+        esFurby = !esFurby;
+
+        // Espera 4 segundos
+        yield return new WaitForSeconds(tiempoCambiarMaterial);
+        powerOfFire = false;
+
+        // Vuelve al material anterior
+        rendererPlayer.material = materialActual;
+
+
+    }
+
     bool IsEnemyNear()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
@@ -78,6 +98,14 @@ public class eat : MonoBehaviour
                 powerOfFire = true;
                 // agregar aca codigo para robar atributos del enemigo comido.
                 StartCoroutine(CambiarMaterialTemporal());
+            }
+
+            if (hitCollider.CompareTag("EnemyIce"))
+            {
+                Destroy(hitCollider.gameObject);
+                powerOfFire = true;
+                // agregar aca codigo para robar atributos del enemigo comido.
+                StartCoroutine(CambiarMaterialTemporalIce());
             }
         }
     }
