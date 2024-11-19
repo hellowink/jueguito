@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AINodeManager : MonoBehaviour
 {
-    private Transform[] _nodes;
+    /* private Transform[] _nodes;
 
     private void Start()
     {
@@ -15,5 +15,5 @@ public class AINodeManager : MonoBehaviour
             enemy.NavMeshNodes.AddRange(_nodes);
             enemy.Initialize();
         }
-    }
+    } */
 }
