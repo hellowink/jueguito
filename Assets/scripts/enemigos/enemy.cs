@@ -1,82 +1,54 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-
-[RequireComponent(typeof(NavMeshAgent))]
 
 public class enemy : MonoBehaviour
 {
-    [SerializeField] private float _chaseDist = 6.0f;
-    [SerializeField] private float _atkDist = 2.0f;
-    [SerializeField] private float _changeNodeDist = 0.5f;
-
-    private Transform _target, _actualNode;
-    private List<Transform> _navMeshNodes = new();
-    public List<Transform> NavMeshNodes
-    { 
-        get { return _navMeshNodes; } 
-        set { _navMeshNodes = value; } 
-    }
-
-    private NavMeshAgent _agent;
-
     public float life = 1f;
 
-    private void Start()
+    public float velocidad = 5f; // Velocidad del enemigo
+    public float rangoDeVision = 10f; // Rango de visión del enemigo
+    private Transform player; // Referencia al jugador
+    private bool playerEnRango = false; // Bandera para verificar si el jugador está en rango
+
+    void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        GameManager.Instance.enemies.Add(this);
+        // Busca el jugador en la escena
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void Initialize()
+    void Update()
     {
-        _target = GameManager.Instance.playerMovement.transform;
+        // Verifica si el jugador está en rango
+        float distancia = Vector3.Distance(transform.position, player.position);
+        playerEnRango = distancia <= rangoDeVision;
 
-        _actualNode = GetNewNode();
-
-        _agent.SetDestination(_actualNode.position);
-    }
-
-    private void Update()
-    {
-        if(Vector3.SqrMagnitude(transform.position - _target.position) <= (_chaseDist * _chaseDist))
+        // Si el jugador está en rango, persíguele
+        if (playerEnRango)
         {
-            if(Vector3.SqrMagnitude(transform.position - _target.position) <= (_atkDist * _atkDist))
-            {
-                if(_agent.isStopped) _agent.isStopped = true;
-
-                Debug.Log("golpecito");
-            }
-            else
-            {
-                if (_agent.isStopped) _agent.isStopped = false;
-                _agent.SetDestination(_target.position);
-            }
-        }
-        else
-        {
-            if (_agent.destination != _actualNode.position) _agent.SetDestination(_actualNode.position);
-
-            if(Vector3.SqrMagnitude(transform.position - _target.position) <= (_changeNodeDist * _changeNodeDist))
-            {
-                _actualNode = GetNewNode(_actualNode);
-
-                _agent.SetDestination(_actualNode.position);
-            }
+            PersigueJugador();
         }
     }
 
-    private Transform GetNewNode(Transform lastNode = null)
+    void PersigueJugador()
     {
-        Transform newNode = _navMeshNodes[UnityEngine.Random.Range(0, _navMeshNodes.Count)];
+        // Calcula la dirección hacia el jugador
+        Vector3 direccion = (player.position - transform.position).normalized;
 
-        while(lastNode == newNode)
+        // Mueve el enemigo hacia el jugador
+        transform.position += direccion * velocidad * Time.deltaTime;
+
+        // Orienta el enemigo hacia el jugador
+        transform.LookAt(player);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Verifica si colisionó con el jugador
+        if (collision.gameObject.tag == "Player")
         {
-            newNode = _navMeshNodes[UnityEngine.Random.Range(0, _navMeshNodes.Count)] ;
+            // Ejecuta acción al colisionar con el jugador (por ejemplo, reducir salud)
+            Debug.Log("Colisionó con el jugador");
         }
-
-        return newNode;
     }
 }
