@@ -12279,6 +12279,7 @@ GameObject:
   - component: {fileID: 1493009816}
   - component: {fileID: 1493009815}
   - component: {fileID: 1493009819}
+  - component: {fileID: 1493009820}
   m_Layer: 3
   m_Name: iceEnemy
   m_TagString: Enemy
@@ -12301,7 +12302,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -12368,7 +12369,7 @@ Transform:
   m_GameObject: {fileID: 1493009813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -39.4, y: -21.732538, z: 19.8}
+  m_LocalPosition: {x: -59.9, y: -21.03, z: 8.34}
   m_LocalScale: {x: 1, y: 0.88216, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12384,16 +12385,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1493009813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db3558ce41474f64b846948828d3ed23, type: 3}
+  m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
-  velocidad: 5
-  rangoDeVision: 10
-  bullet: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
-  firePoint: {fileID: 939751233}
-  bulletSpeed: 10
-  shootInterval: 2
+  radioVision: 10
+  velocidadMovimiento: 7
+  velocidadDisparo: 10
+  tiempoEntreDisparos: 2
+  bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
+--- !u!54 &1493009820
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493009813}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1500305452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: da47a33e7eb6b8146b2da6553d74b9b9, type: 3}
@@ -14932,7 +14958,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -14998,7 +15024,7 @@ Transform:
   m_GameObject: {fileID: 1812606519}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -81.0343, y: -0.81099993, z: -2.0781765}
+  m_LocalPosition: {x: -81.0343, y: -1.19, z: -2.0781765}
   m_LocalScale: {x: 2.2644, y: 1, z: 5.4822}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16333,7 +16359,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -119.899994, y: 14.6, z: -30.562057}
-  m_LocalScale: {x: 101.54398, y: 1, z: 59.167862}
+  m_LocalScale: {x: 111.810074, y: 1, z: 59.167862}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
