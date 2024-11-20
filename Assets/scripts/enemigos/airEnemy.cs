@@ -16,6 +16,8 @@ public class airEnemy : MonoBehaviour
     // Tiempo entre disparos
     public float tiempoEntreDisparos = 2f;
 
+    public float bulletLifeTime = 2.0f;
+
     // Referencia al jugador
     private Transform player;
 
@@ -55,5 +57,8 @@ public class airEnemy : MonoBehaviour
 
         // Establece la velocidad del proyectil
         proyectil.GetComponent<Rigidbody>().velocity = (player.position - transform.position).normalized * velocidadDisparo;
+
+        Destroy(proyectil, bulletLifeTime);
+
     }
 }

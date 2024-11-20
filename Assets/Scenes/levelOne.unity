@@ -8202,7 +8202,7 @@ Transform:
   m_GameObject: {fileID: 1013148842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -54.55, y: -21.03, z: 2.59}
+  m_LocalPosition: {x: -36.3, y: -21.03, z: 2.75}
   m_LocalScale: {x: 1, y: 0.88216, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12105,6 +12105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8975679514016879861, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
+      propertyPath: iceCondition
+      value: 
+      objectReference: {fileID: 1488498431}
     - target: {fileID: 1177910298882160810, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.00266
@@ -13063,6 +13067,7 @@ GameObject:
   - component: {fileID: 1488498428}
   - component: {fileID: 1488498429}
   - component: {fileID: 1488498430}
+  - component: {fileID: 1488498431}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -13245,7 +13250,7 @@ Transform:
   m_GameObject: {fileID: 1488498414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -69.3, y: 1.39, z: -29.2}
+  m_LocalPosition: {x: -62.8, y: 1.39, z: -31.8}
   m_LocalScale: {x: 0.5915581, y: 0.52729577, z: 0.55077195}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13325,6 +13330,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravedadAdicional: 100
+--- !u!114 &1488498431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488498414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9fdfb9a5bab174b9b1589af4862eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1488498421}
+  speedSlowed: 5
+  materialOriginal: {fileID: 2100000, guid: b681d7b8660b8854c877a49dbe973956, type: 2}
+  materialIce: {fileID: 2100000, guid: 1dad609af370ced4a92faf975971b306, type: 2}
 --- !u!1 &1500305452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: da47a33e7eb6b8146b2da6553d74b9b9, type: 3}

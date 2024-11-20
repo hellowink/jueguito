@@ -4,96 +4,34 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 10f;
     public float drag = 5.0f; // Freno
 
     private Vector3 movementDirection;
     private Rigidbody rb;
 
+    public float speedOriginal = 10f;
+    public float speedSlowed = 5f;
+    
+
+    
 
 
-    /*void Update()
+    
+
+    public void SlowDown()
     {
-        // Obtén la dirección de la cámara
-        Vector3 cameraDirection = Camera.main.transform.forward;
+        speed = speedSlowed;
+        StartCoroutine(RestoreSpeed());
 
-        // Elimina el componente Y de la dirección para que el personaje se mueva en el plano horizontal
-        cameraDirection.y = 0;
-
-        // Normaliza la dirección para que tenga longitud 1
-        cameraDirection.Normalize();
-
-        // Mueve el personaje según las teclas WASD
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += cameraDirection * speed * Time.deltaTime;
-        }
-
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position -= cameraDirection.normalized * speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= cameraDirection * speed * Time.deltaTime;
-        }
         
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= cameraDirection.normalized * speed * Time.deltaTime;
-        }
+    }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.Cross(cameraDirection, Vector3.up).normalized * speed * Time.deltaTime;
-        }
-
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position -= Vector3.Cross(cameraDirection, Vector3.up).normalized * speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position -= Vector3.Cross(cameraDirection, Vector3.up).normalized * speed * Time.deltaTime;
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= cameraDirection.normalized * speed * Time.deltaTime;
-        }
-
-        // Mueve el personaje en las diagonales
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
-        {
-            Vector3 diagonalDirection = Vector3.Cross(cameraDirection, Vector3.up) - cameraDirection;
-            diagonalDirection.Normalize();
-            transform.position += diagonalDirection * speed * Time.deltaTime;
-
-        }
-
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-        {
-            Vector3 diagonalDirection = Vector3.Cross(cameraDirection, Vector3.up) - cameraDirection;
-            diagonalDirection.Normalize();
-            transform.position += diagonalDirection * speed * Time.deltaTime;
-        }
-        
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-        {
-            Vector3 diagonalDirection = Vector3.Cross(cameraDirection, Vector3.up) - cameraDirection;
-            diagonalDirection.Normalize();
-            transform.position -= diagonalDirection * speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-        {
-            Vector3 diagonalDirection = Vector3.Cross(cameraDirection, Vector3.up) - cameraDirection;
-            diagonalDirection.Normalize();
-            transform.position -= diagonalDirection * speed * Time.deltaTime;
-        }
-    }*/
+    private IEnumerator RestoreSpeed()
+    {
+        yield return new WaitForSeconds(3f);
+        speed = speedOriginal;
+    }
 
 
 
@@ -104,6 +42,12 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
+
+        
+
+        
+
+
         // Obtén la dirección de la cámara
         Vector3 cameraDirection = Camera.main.transform.forward;
         cameraDirection.y = 0;
