@@ -12,12 +12,14 @@ public class playerMovement : MonoBehaviour
 
     public float speedOriginal = 10f;
     public float speedSlowed = 5f;
-    
 
-    
+    public bool lowFreeze = false;
 
 
-    
+
+
+
+
 
     public void SlowDown()
     {

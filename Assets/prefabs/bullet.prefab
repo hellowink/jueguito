@@ -180,3 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8249c8c3c6099cb4dab5b2f72523cd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowFreeze: 0
+  materialOriginal: {fileID: 2100000, guid: b681d7b8660b8854c877a49dbe973956, type: 2}
+  materialIce: {fileID: 2100000, guid: 1dad609af370ced4a92faf975971b306, type: 2}
