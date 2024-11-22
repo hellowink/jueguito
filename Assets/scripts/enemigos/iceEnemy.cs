@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class airEnemy : MonoBehaviour
 {
+    public lifeBarController lifeBarController;
+
     // Radio de visión para detectar al jugador
     public float radioVision = 10f;
 
@@ -61,4 +64,6 @@ public class airEnemy : MonoBehaviour
         Destroy(proyectil, bulletLifeTime);
 
     }
+
+    
 }

@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemy : MonoBehaviour
 {
+
+    public lifeBarController lifeBarController;
+
     public float life = 1f;
 
     public float velocidad = 5f; // Velocidad del enemigo
@@ -49,6 +53,9 @@ public class enemy : MonoBehaviour
         {
             // Ejecuta acción al colisionar con el jugador (por ejemplo, reducir salud)
             Debug.Log("Colisionó con el jugador");
+            
         }
     }
+
+    
 }

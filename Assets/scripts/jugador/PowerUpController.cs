@@ -5,11 +5,12 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
 
-    public playerLife playerLife;
+    public lifeBarController lifeBarController;
     public changeBall changeBall; // Referencia al script ChangeForm
     public powerUpBar powerUpBar; // Referencia al script PowerUpBar
     public string enemyTag = "Enemy"; // Tag de los enemigos
     public string enemyTagIce = "EnemyIce";
+    public string bulletTag = "bullet";
     public bool niumNium= false;
 
     
@@ -45,14 +46,30 @@ public class PowerUpController : MonoBehaviour
         {
 
             Debug.Log("recibiste 5 de daño");
-            playerLife.lifeActually = playerLife.lifeActually - 5;
+            lifeBarController.lifeActually = lifeBarController.lifeActually - 5;
         }
 
         if (changeBall.normalForm && collision.gameObject.tag == enemyTagIce)
         {
 
             Debug.Log("recibiste 5 de daño");
-            playerLife.lifeActually = playerLife.lifeActually - 5;
+            lifeBarController.lifeActually = lifeBarController.lifeActually - 5;
         }
+
+        if (changeBall.normalForm && collision.gameObject.tag == "bullet")
+        {
+
+            Debug.Log("recibiste 2 de daño");
+            lifeBarController.lifeActually = lifeBarController.lifeActually - 2;
+        }
+
+        if (!changeBall.normalForm && collision.gameObject.tag == "bullet")
+        {
+
+            Debug.Log("recibiste 2 de daño");
+            lifeBarController.lifeActually = lifeBarController.lifeActually - 2;
+        }
+
+
     }
 }
