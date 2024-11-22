@@ -12,6 +12,7 @@ TagManager:
   - pick
   - EnemyIce
   - EnemyAir
+  - floor
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,7 @@ public class enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Verifica si colisionó con el jugador
+        // Verifica si colisionó con el jugador 
         if (collision.gameObject.tag == "Player")
         {
             // Ejecuta acción al colisionar con el jugador (por ejemplo, reducir salud)

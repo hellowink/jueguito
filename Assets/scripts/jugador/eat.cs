@@ -26,7 +26,7 @@ public class eat : MonoBehaviour
     void Update()
     {
         // Cuando se presiona la tecla espacio
-        if (Input.GetKeyDown(KeyCode.Space) && powerUpBar.powerActually == powerUpBar.powerMax)
+        if (Input.GetKeyDown(KeyCode.E) && powerUpBar.powerActually == powerUpBar.powerMax)
         {
             // Inicia el coroutine para cambiar el material
             

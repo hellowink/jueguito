@@ -17,6 +17,8 @@ public class propulsed : MonoBehaviour
             // Calcula la dirección de la propulsion (hacia atrás)
             Vector3 direccionPropulsion = -transform.forward;
 
+            
+
             // Aplica la propulsion al jugador
             rb.AddForce(direccionPropulsion * fuerzaPropulsion, ForceMode.Impulse);
         }
