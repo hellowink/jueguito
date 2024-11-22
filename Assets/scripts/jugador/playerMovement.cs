@@ -6,7 +6,7 @@ public class playerMovement : MonoBehaviour
 {
     public float speed = 10f;
     public float drag = 5.0f; // Freno
-    public float jumpForce = 5f; // Fuerza del salto
+    public float jumpForce = 40f; // Fuerza del salto
     private Vector3 movementDirection;
     private Rigidbody rb;
     public float speedOriginal = 10f;
@@ -66,9 +66,15 @@ public class playerMovement : MonoBehaviour
         {
             isGrounded = true; // Indica que el jugador está en el suelo
         }
+    }
 
-
-
+    void OnCollisionExit(Collision collision)
+    {
+        // Verifica si la colisión es con el suelo
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            isGrounded = false; // Indica que el jugador no está en el suelo
+        }
     }
 }
 

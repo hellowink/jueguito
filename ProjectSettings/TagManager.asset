@@ -13,6 +13,7 @@ TagManager:
   - EnemyIce
   - EnemyAir
   - floor
+  - portal
   layers:
   - Default
   - TransparentFX
