@@ -39,6 +39,8 @@ public class enemy : MonoBehaviour
         // Calcula la dirección hacia el jugador
         Vector3 direccion = (player.position - transform.position).normalized;
 
+        direccion.y = 0;
+
         // Mueve el enemigo hacia el jugador
         transform.position += direccion * velocidad * Time.deltaTime;
 
