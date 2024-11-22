@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,7 +46,7 @@ public class enemy : MonoBehaviour
         transform.position += direccion * velocidad * Time.deltaTime;
 
         // Orienta el enemigo hacia el jugador
-        transform.LookAt(player);
+        transform.LookAt(new Vector3 (player.position.x, transform.position.y, player.position.z));
     }
 
     void OnCollisionEnter(Collision collision)

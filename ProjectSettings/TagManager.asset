@@ -14,6 +14,7 @@ TagManager:
   - EnemyAir
   - floor
   - portal
+  - agua
   layers:
   - Default
   - TransparentFX

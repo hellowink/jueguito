@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,7 @@ public class eat : MonoBehaviour
     public Material materialIceWall;
     private bool esFurby = true; //estado base
     private float tiempoCambiarMaterial = 4f;
+    public LayerMask layer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +26,14 @@ public class eat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Cuando se presiona la tecla espacio
+        // Cuando se presiona la tecla E
         if (Input.GetKeyDown(KeyCode.E) && powerUpBar.powerActually == powerUpBar.powerMax)
         {
             // Inicia el coroutine para cambiar el material
             
             EatEnemy();
             
-            powerUpBar.powerActually = powerUpBar.powerMin;
+            
         }
     }
 
@@ -89,24 +90,50 @@ public class eat : MonoBehaviour
 
     void EatEnemy()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
-        foreach (var hitCollider in hitColliders)
-        {
-            if (hitCollider.CompareTag("Enemy"))
-            {
-                Destroy(hitCollider.gameObject);
-                powerOfFire = true;
-                // agregar aca codigo para robar atributos del enemigo comido.
-                StartCoroutine(CambiarMaterialTemporal());
-            }
+        int index = 0;
+        float distance = Mathf.Infinity;
 
-            if (hitCollider.CompareTag("EnemyIce"))
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f, layer);
+
+        
+
+        if (hitColliders.Length == 0)   
+            return;
+
+        powerUpBar.powerActually = powerUpBar.powerMin;
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            var x = Vector3.Distance(hitColliders[i].transform.position, transform.position);
+
+            if (x < distance)
             {
-                Destroy(hitCollider.gameObject);
-                powerOfFire = true;
-                // agregar aca codigo para robar atributos del enemigo comido.
-                StartCoroutine(CambiarMaterialTemporalIce());
+                index = i; 
             }
         }
+
+         
+        
+        if (hitColliders[index].gameObject.CompareTag("Enemy"))
+        {
+            
+            Destroy(hitColliders[index].gameObject);
+            powerOfFire = true;
+            // agregar aca codigo para robar atributos del enemigo comido.
+            StartCoroutine(CambiarMaterialTemporal());
+            
+        }
+
+        if (hitColliders[index].CompareTag("EnemyIce"))
+        {
+            Destroy(hitColliders[index].gameObject);
+            powerOfFire = true;
+            // agregar aca codigo para robar atributos del enemigo comido.
+            StartCoroutine(CambiarMaterialTemporalIce());
+        }
+        
     }
+
+
 }
