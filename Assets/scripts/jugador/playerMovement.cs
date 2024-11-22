@@ -59,12 +59,12 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         // Verifica si la colisión es con el suelo
         if (collision.gameObject.CompareTag("floor"))
         {
-            isGrounded = true; // Indica que el jugador está en el suelo
+            isGrounded = true; // Indica que el jugador stá en el suelo
         }
     }
 
