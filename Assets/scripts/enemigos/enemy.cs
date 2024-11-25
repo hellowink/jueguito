@@ -11,53 +11,41 @@ public class enemy : MonoBehaviour
 
     public float life = 1f;
 
-    public float velocidad = 5f; // Velocidad del enemigo
-    public float rangoDeVision = 10f; // Rango de visión del enemigo
-    private Transform player; // Referencia al jugador
-    private bool playerEnRango = false; // Bandera para verificar si el jugador está en rango
+    public float speed = 5f; 
+    public float rangeOfVision = 10f; 
+    private Transform _player;
+    private bool _playerOnRange = false; 
 
     void Start()
     {
-        // Busca el jugador en la escena
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        // Verifica si el jugador está en rango
-        float distancia = Vector3.Distance(transform.position, player.position);
-        playerEnRango = distancia <= rangoDeVision;
+        float distancia = Vector3.Distance(transform.position, _player.position);
+        _playerOnRange = distancia <= rangeOfVision;
 
-        // Si el jugador está en rango, persíguele
-        if (playerEnRango)
+        if (_playerOnRange)
         {
-            PersigueJugador();
+            ChasePlayer();
         }
     }
 
-    void PersigueJugador()
+    void ChasePlayer()
     {
-        // Calcula la dirección hacia el jugador
-        Vector3 direccion = (player.position - transform.position).normalized;
+        Vector3 direccion = (_player.position - transform.position).normalized;
 
         direccion.y = 0;
 
-        // Mueve el enemigo hacia el jugador
-        transform.position += direccion * velocidad * Time.deltaTime;
+        transform.position += direccion * speed * Time.deltaTime;
 
-        // Orienta el enemigo hacia el jugador
-        transform.LookAt(new Vector3 (player.position.x, transform.position.y, player.position.z));
+        transform.LookAt(new Vector3 (_player.position.x, transform.position.y, _player.position.z));
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // Verifica si colisionó con el jugador 
-        if (collision.gameObject.tag == "Player")
-        {
-            // Ejecuta acción al colisionar con el jugador (por ejemplo, reducir salud)
-            Debug.Log("Colisionó con el jugador");
-            
-        }
+        if (collision.gameObject.tag == "Player"){}
     }
 
     

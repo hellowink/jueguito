@@ -5,10 +5,6 @@ using UnityEngine;
 public class pastilla : MonoBehaviour
 {
     public bool grajea = false;
-
-
-
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("grajea"))

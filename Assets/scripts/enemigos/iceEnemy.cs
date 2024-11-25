@@ -6,60 +6,40 @@ using UnityEngine.UI;
 public class airEnemy : MonoBehaviour
 {
     public lifeBarController lifeBarController;
-
-    // Radio de visión para detectar al jugador
     public float radioVision = 10f;
-
-    // Velocidad de movimiento del enemigo
-    public float velocidadMovimiento = 5f;
-
-    // Velocidad de disparo del enemigo
-    public float velocidadDisparo = 10f;
-
-    // Tiempo entre disparos
-    public float tiempoEntreDisparos = 2f;
-
+    public float speedMovement = 5f;
+    public float speedShoot = 10f;
+    public float shootTimer = 2f;
     public float bulletLifeTime = 2.0f;
-
-    // Referencia al jugador
-    private Transform player;
-
-    // Referencia al proyectil
+    private Transform _player;
     public GameObject bulletAir;
-
-    private float tiempoUltimoDisparo = 0f;
+    private float _timeLastShot = 0f;
 
     void Start()
     {
-        // Busca el jugador en la escena
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        // Verifica si el jugador está dentro del radio de visión
-        float distancia = Vector3.Distance(transform.position, player.position);
+        float distancia = Vector3.Distance(transform.position, _player.position);
         if (distancia <= radioVision)
         {
-            // Alejarse del jugador
-            transform.position += (transform.position - player.position).normalized * velocidadMovimiento * Time.deltaTime;
+            transform.position += (transform.position - _player.position).normalized * speedMovement * Time.deltaTime;
 
-            // Disparar hacia el jugador
-            if (Time.time > tiempoUltimoDisparo + tiempoEntreDisparos)
+            if (Time.time > _timeLastShot + shootTimer)
             {
-                tiempoUltimoDisparo = Time.time;
-                Disparar();
+                _timeLastShot = Time.time;
+                Shoot();
             }
         }
     }
 
-    void Disparar()
+    void Shoot()
     {
-        // Crea un nuevo proyectil
         GameObject proyectil = Instantiate(bulletAir, transform.position, transform.rotation);
 
-        // Establece la velocidad del proyectil
-        proyectil.GetComponent<Rigidbody>().velocity = (player.position - transform.position).normalized * velocidadDisparo;
+        proyectil.GetComponent<Rigidbody>().velocity = (_player.position - transform.position).normalized * speedShoot;
 
         Destroy(proyectil, bulletLifeTime);
 

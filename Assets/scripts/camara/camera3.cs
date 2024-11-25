@@ -10,7 +10,7 @@ public class camera3 : MonoBehaviour
     private Vector3 _offset = new();
     private void Start()
     {
-        _offset = transform.position - _target.position; // POSICIÓN ENTRE LA CÁMARA Y EL OBJETO QUE QUEREMOS SEGUIR
+        _offset = transform.position - _target.position; 
     }
 
     private void LateUpdate()

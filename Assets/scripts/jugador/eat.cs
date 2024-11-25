@@ -13,65 +13,43 @@ public class eat : MonoBehaviour
     public Material materialFurby;
     public Material materialFireMonster;
     public Material materialIceWall;
-    private bool esFurby = true; //estado base
-    private float tiempoCambiarMaterial = 4f;
+    private bool _isFurby = true; 
+    private float _timeChangeMaterial = 4f;
     public LayerMask layer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // Cuando se presiona la tecla E
         if (Input.GetKeyDown(KeyCode.E) && powerUpBar.powerActually == powerUpBar.powerMax)
         {
-            // Inicia el coroutine para cambiar el material
-            
-            EatEnemy();
-            
-            
+            EatEnemy(); 
         }
     }
 
-    IEnumerator CambiarMaterialTemporal()
+    IEnumerator ChangeMaterialFire()
     {
-        // Guarda el material actual
-        Material materialActual = rendererPlayer.material;
+        Material actualMaterial_Fire = rendererPlayer.material;
 
-        // Cambia el material
-        rendererPlayer.material = esFurby ? materialFireMonster : materialFurby;
-        esFurby = !esFurby;
+        rendererPlayer.material = _isFurby ? materialFireMonster : materialFurby;
+        _isFurby = !_isFurby;
 
-        // Espera 4 segundos
-        yield return new WaitForSeconds(tiempoCambiarMaterial);
+        yield return new WaitForSeconds(_timeChangeMaterial);
         powerOfFire = false;
 
-        // Vuelve al material anterior
-        rendererPlayer.material = materialActual;
+        rendererPlayer.material = actualMaterial_Fire;
 
 
     }
 
-    IEnumerator CambiarMaterialTemporalIce()
+    IEnumerator ChangeMaterialIce()
     {
-        // Guarda el material actual
-        Material materialActual = rendererPlayer.material;
+        Material actualMaterial_Ice = rendererPlayer.material;
 
-        // Cambia el material
-        rendererPlayer.material = esFurby ? materialIceWall : materialFurby;
-        esFurby = !esFurby;
+        rendererPlayer.material = _isFurby ? materialIceWall : materialFurby;
+        _isFurby = !_isFurby;
 
-        // Espera 4 segundos
-        yield return new WaitForSeconds(tiempoCambiarMaterial);
+        yield return new WaitForSeconds(_timeChangeMaterial);
         powerOfFire = false;
 
-        // Vuelve al material anterior
-        rendererPlayer.material = materialActual;
-
+        rendererPlayer.material = actualMaterial_Ice;
 
     }
 
@@ -96,8 +74,6 @@ public class eat : MonoBehaviour
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f, layer);
 
-        
-
         if (hitColliders.Length == 0)   
             return;
 
@@ -112,25 +88,21 @@ public class eat : MonoBehaviour
                 index = i; 
             }
         }
-
-         
-        
+  
         if (hitColliders[index].gameObject.CompareTag("Enemy"))
-        {
-            
+        {            
             Destroy(hitColliders[index].gameObject);
             powerOfFire = true;
-            // agregar aca codigo para robar atributos del enemigo comido.
-            StartCoroutine(CambiarMaterialTemporal());
-            
+
+            StartCoroutine(ChangeMaterialFire());       
         }
 
         if (hitColliders[index].CompareTag("EnemyIce"))
         {
             Destroy(hitColliders[index].gameObject);
             powerOfFire = true;
-            // agregar aca codigo para robar atributos del enemigo comido.
-            StartCoroutine(CambiarMaterialTemporalIce());
+
+            StartCoroutine(ChangeMaterialIce());
         }
         
     }

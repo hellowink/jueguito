@@ -7,12 +7,9 @@ public class portal : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        // Verifica si la colisión es con el airEnemy
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene("youDied");
         }
-
-
     }
 }

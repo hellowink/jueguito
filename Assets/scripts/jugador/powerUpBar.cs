@@ -7,17 +7,9 @@ public class powerUpBar : MonoBehaviour
 {
     public Image powerUp;
 
-    
-
     public float powerActually = 0;
-
     public float powerMax= 10;
-
     public float powerMin = 0;
-
-    
-
-    // Update is called once per frame
     void Update()
     {
         powerUp.fillAmount = powerActually / powerMax;

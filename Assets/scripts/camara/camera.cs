@@ -12,6 +12,4 @@ public class camera : MonoBehaviour
     {
         transform.position= new Vector3 (target.position.x + offsetZ, target.position.y + offsetY, transform.position.z );
     }
-
-
 }

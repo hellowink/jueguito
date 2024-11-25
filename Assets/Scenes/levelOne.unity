@@ -575,8 +575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1 &50466311
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,11 +653,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 2
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &50466315
@@ -3617,8 +3617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1 &291710310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a330cb78dd7d7944b85ed2b5465ce35c, type: 3}
@@ -4253,8 +4253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &349037043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8081,11 +8081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 5
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &756233379
@@ -9883,11 +9883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 5
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &921987734
@@ -10670,11 +10670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 5
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &1013148846
@@ -11307,8 +11307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &1102145309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13101,11 +13101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 5
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &1270714511
@@ -15061,8 +15061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1 &1464166416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c412be1dc0540484f84a7d0133bd5742, type: 3}
@@ -15562,7 +15562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1488498421}
-  pastilla: {fileID: 1488498427}
+  pill: {fileID: 1488498427}
   normalForm: 1
   esfera: {fileID: 2004120950}
   rendererPlayer: {fileID: 1488498423}
@@ -15592,7 +15592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpBar: {fileID: 1488498417}
-  paredHieloTag: paredHielo
+  tagIceWall: paredHielo
   eat: {fileID: 1488498415}
 --- !u!114 &1488498430
 MonoBehaviour:
@@ -15606,7 +15606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdd3992d21271f4594fd6ba349ffdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravedadAdicional: 100
+  additionalGravity: 100
 --- !u!114 &1488498431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15619,7 +15619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c0b48b508a50d4296fbfbb1bbf1954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaPropulsion: 100
+  forcePropulsion: 100
 --- !u!114 &1488498432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15649,7 +15649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpBar: {fileID: 1488498417}
-  aguita: agua
+  water: agua
   eat: {fileID: 1488498415}
 --- !u!1 &1498618611 stripped
 GameObject:
@@ -16781,8 +16781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &1578028487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16916,8 +16916,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!4 &1591043170
 Transform:
   m_ObjectHideFlags: 0
@@ -17497,11 +17497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00a1365f359bae42b66e0c5c6f73874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeBarController: {fileID: 0}
+  lifeBarController: {fileID: 1488498432}
   radioVision: 10
-  velocidadMovimiento: 3
-  velocidadDisparo: 5
-  tiempoEntreDisparos: 2
+  speedMovement: 5
+  speedShoot: 10
+  shootTimer: 2
   bulletLifeTime: 2
   bulletAir: {fileID: 6362854244743000415, guid: b5a93b85e30d8a74b961d6a5da8a5119, type: 3}
 --- !u!136 &1634672513
@@ -18661,8 +18661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1001 &1695698195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18851,8 +18851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1001 &1710698197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20901,8 +20901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &1838527028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21318,8 +21318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &1852422980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22637,8 +22637,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!65 &2001842664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23191,8 +23191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeBarController: {fileID: 1488498432}
   life: 1
-  velocidad: 5
-  rangoDeVision: 10
+  speed: 5
+  rangeOfVision: 10
 --- !u!1001 &2038220395
 PrefabInstance:
   m_ObjectHideFlags: 0

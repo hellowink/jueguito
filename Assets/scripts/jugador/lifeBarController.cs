@@ -7,18 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class lifeBarController : MonoBehaviour
 {
-
-
     public Image life;
-
     public float lifeActually = 10f;
-
     public float lifeMax = 10f;
-
     public float lifeMin = 0f;
-
-
-
 
     void Update()
     {
@@ -28,8 +20,5 @@ public class lifeBarController : MonoBehaviour
         {
             SceneManager.LoadScene("youDied");
         }
-    }
-
-    
-    
+    }    
 }

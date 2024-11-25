@@ -5,10 +5,10 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     public float speed = 10f;
-    public float drag = 5.0f; // Freno
-    public float jumpForce = 40f; // Fuerza del salto
-    private Vector3 movementDirection;
-    private Rigidbody rb;
+    public float drag = 5.0f; 
+    public float jumpForce = 40f; 
+    private Vector3 _movementDirection;
+    private Rigidbody _rb;
     public float speedOriginal = 10f;
     public float speedSlowed = 5f;
     public bool isGrounded = false;
@@ -27,53 +27,53 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        // Obtén la dirección de la cámara
+
         Vector3 cameraDirection = Camera.main.transform.forward;
         cameraDirection.y = 0;
         cameraDirection.Normalize();
-        // Variables para almacenar el movimiento horizontal y vertical
+
         float horizontal = -Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        // Calcula la dirección del movimiento
-        movementDirection = horizontal * Vector3.Cross(cameraDirection, Vector3.up) + vertical * cameraDirection;
-        movementDirection.Normalize();
-        // Mueve el personaje
+
+        _movementDirection = horizontal * Vector3.Cross(cameraDirection, Vector3.up) + vertical * cameraDirection;
+        _movementDirection.Normalize();
+
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
-            rb.velocity = new Vector3(movementDirection.x * speed, rb.velocity.y, movementDirection.z * speed);
+            _rb.velocity = new Vector3(_movementDirection.x * speed, _rb.velocity.y, _movementDirection.z * speed);
         }
         else
         {
-            // Frena el personaje
-            rb.velocity = new Vector3(Mathf.Lerp(rb.velocity.x, 0, drag * Time.deltaTime), rb.velocity.y, Mathf.Lerp(rb.velocity.z, 0, drag * Time.deltaTime));
+
+            _rb.velocity = new Vector3(Mathf.Lerp(_rb.velocity.x, 0, drag * Time.deltaTime), _rb.velocity.y, Mathf.Lerp(_rb.velocity.z, 0, drag * Time.deltaTime));
         }
-        // Salta
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded== true)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        // Verifica si la colisión es con el suelo
+
         if (collision.gameObject.CompareTag("floor"))
         {
-            isGrounded = true; // Indica que el jugador stá en el suelo
+            isGrounded = true; 
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
-        // Verifica si la colisión es con el suelo
+
         if (collision.gameObject.CompareTag("floor"))
         {
-            isGrounded = false; // Indica que el jugador no está en el suelo
+            isGrounded = false;
         }
     }
 }

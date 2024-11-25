@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AumentarGravedad : MonoBehaviour
+public class increaseGravity : MonoBehaviour
 {
-    public float gravedadAdicional = 5f;
-    private Rigidbody rb;
+    public float additionalGravity = 100f;
+    private Rigidbody _rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(Vector3.down * gravedadAdicional);
+        _rb.AddForce(Vector3.down * additionalGravity);
     }
 }

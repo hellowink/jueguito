@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class iceDamage : MonoBehaviour
 {
-     
-
     void OnCollisionEnter(Collision collision)
     {
-        // Verifica si la colisión es con el airEnemy
         if (collision.gameObject.tag == "Player") 
         {
             SceneManager.LoadScene("youDied");
         } 
-        
-        
     }
 }

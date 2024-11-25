@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("La bala ha golpeado al jugador");
             Destroy(gameObject);
         }
     }

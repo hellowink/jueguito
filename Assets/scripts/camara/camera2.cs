@@ -4,44 +4,24 @@ using UnityEngine;
 
 public class camera2 : MonoBehaviour
 {
-
-
-    public Transform player; // Referencia al jugador
-    public float distance = 5f; // Distancia entre la cámara y el jugador
-    public float height = 2f; // Altura de la cámara respecto al jugador
-    public float sensitivity = 5f; // Sensibilidad del movimiento de la cámara
+    public Transform player; 
+    public float distance = 5f; 
+    public float height = 2f; 
+    public float sensitivity = 5f; 
     public float playerRotationSpeed = 5f;
 
-    private float mouseX = 0f;
-    private float mouseY = 0f;
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private float _mouseX = 0f;
+    private float _mouseY = 0f;
 
     void LateUpdate()
     {
-        // Actualiza la posición de la cámara
         transform.position = player.position - transform.forward * distance + new Vector3(0, height, 0);
 
-        // Actualiza la rotación de la cámara
-        mouseX += Input.GetAxis("Mouse X") * sensitivity;
-        mouseY += Input.GetAxis("Mouse Y") * sensitivity;
-        mouseY = Mathf.Clamp(mouseY, -90f, 90f);
-        transform.rotation = Quaternion.Euler(-mouseY, mouseX, 0);
+        _mouseX += Input.GetAxis("Mouse X") * sensitivity;
+        _mouseY += Input.GetAxis("Mouse Y") * sensitivity;
+        _mouseY = Mathf.Clamp(_mouseY, -90f, 90f);
+        transform.rotation = Quaternion.Euler(-_mouseY, _mouseX, 0);
 
-        //actualiza la rotacion del player
-        player.rotation = Quaternion.Euler(0, mouseX, 0);
+        player.rotation = Quaternion.Euler(0, _mouseX, 0);
     }
 }

@@ -6,49 +6,29 @@ using UnityEngine;
 
 public class changeForm : MonoBehaviour
 {
-    public Mesh meshCapsula; // Mesh de la cápsula
-    public Mesh meshEsfera; // Mesh de la esfera
-    private MeshFilter meshFilter; // Referencia al MeshFilter
-    public bool normalForm = true; // Bandera para saber si es cápsula o esfera
-    public playerMovement playerMovement; // Referencia al script PlayerMovement
-    public pastilla pastilla; //referencia al script pastilla
+    public Mesh meshCapsule; 
+    public Mesh meshSphere; 
+    private MeshFilter meshFilter; 
+    public bool normalForm = true; 
+    public playerMovement playerMovement; 
+    public pastilla pastilla; 
     public GameObject player;
     public GameObject esfera;
 
 
     void Start()
-    {
-        
-        
-        meshFilter = GetComponent<MeshFilter>(); // Obtiene el MeshFilter
-        playerMovement = GetComponent<playerMovement>(); // Obtiene el script PlayerMovement
-        pastilla = GetComponent<pastilla>(); //referencia al script pastilla
+    {    
+        meshFilter = GetComponent<MeshFilter>(); 
+        playerMovement = GetComponent<playerMovement>(); 
+        pastilla = GetComponent<pastilla>();
     }
 
     void Update()
     {
-        if (pastilla.grajea) //si la variable grajea del script pastilla es true..
+        if (pastilla.grajea)
         {
-            if (Input.GetKeyDown(KeyCode.Q)) // Si se presiona la tecla Q
-            {
-                // Cambia el mesh del player por el mesh de la esfera
-                //rendererPlayer.enabled = !rendererPlayer.enabled;
-                //rendererEsfera.enabled = !rendererfluffy.enabled;
-
-                // Cambia el mesh del player
-                //GetComponent<MeshFilter>().mesh = rendererPlayer.enabled ? meshCapsula : meshEsfera;
-            }
+            if (Input.GetKeyDown(KeyCode.Q)) { }
         }
 
-
-
-        
-
-        
-
-        
     }
-
-    
-
 }
