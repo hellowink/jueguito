@@ -6,7 +6,7 @@ using UnityEngine;
 public class pauseMenu : MonoBehaviour
 {
     public GameObject pause; 
-    public MonoBehaviour camera2; 
+    public MonoBehaviour camera2;
 
     private bool isPaused = false;
 
@@ -39,5 +39,17 @@ public class pauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         camera2.enabled = true; 
         isPaused = false;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("levelOne");
+        Time.timeScale = 1f;
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MenuInicial");
+        Time.timeScale = 1f;
     }
 }
