@@ -40,29 +40,21 @@ public class PowerUpController : MonoBehaviour
 
         if (changeBall.normalForm && collision.gameObject.tag == enemyTag)
         {
-
-            Debug.Log("recibiste 5 de daño");
             lifeBarController.lifeActually = lifeBarController.lifeActually - 5;
         }
 
         if (changeBall.normalForm && collision.gameObject.tag == enemyTagIce)
         {
-
-            Debug.Log("recibiste 5 de daño");
             lifeBarController.lifeActually = lifeBarController.lifeActually - 5;
         }
 
         if (changeBall.normalForm && collision.gameObject.tag == "bullet")
         {
-
-            Debug.Log("recibiste 2 de daño");
             lifeBarController.lifeActually = lifeBarController.lifeActually - 2;
         }
 
         if (!changeBall.normalForm && collision.gameObject.tag == "bullet")
         {
-
-            Debug.Log("recibiste 2 de daño");
             lifeBarController.lifeActually = lifeBarController.lifeActually - 2;
         }
 

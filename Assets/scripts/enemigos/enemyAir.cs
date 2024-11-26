@@ -6,15 +6,17 @@ public class enemyAir : MonoBehaviour
 {
     public float life = 1f;
 
-    public float speed = 5f; 
-    public float rangeOfVision = 10f; 
+    public float speed = 5f;
+    public float rangeOfVision = 10f;
     private Transform _player;
     private bool _playerOnRange = false;
-    
+    private changeBall _changeBall;
+
 
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _changeBall = _player.GetComponent<changeBall>();
     }
 
     void Update()
@@ -37,9 +39,11 @@ public class enemyAir : MonoBehaviour
         transform.LookAt(_player);
     }
 
-    
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player") && _changeBall.normalForm)
+        {
 
-    
-
-    
+        }
+    }
 }

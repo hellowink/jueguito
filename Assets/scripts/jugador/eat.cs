@@ -13,6 +13,7 @@ public class eat : MonoBehaviour
     public Material materialFurby;
     public Material materialFireMonster;
     public Material materialIceWall;
+    public Material materialAir;
     private bool _isFurby = true; 
     private float _timeChangeMaterial = 10f;
     public LayerMask layer;
@@ -50,6 +51,20 @@ public class eat : MonoBehaviour
         powerOfFire = false;
 
         rendererPlayer.material = actualMaterial_Ice;
+
+    }
+
+    IEnumerator ChangeMaterialAir()
+    {
+        Material actualMaterial_Air = rendererPlayer.material;
+
+        rendererPlayer.material = _isFurby ? materialAir : materialFurby;
+        _isFurby = !_isFurby;
+
+        yield return new WaitForSeconds(_timeChangeMaterial);
+        powerOfFire = false;
+
+        rendererPlayer.material = actualMaterial_Air;
 
     }
 
@@ -104,7 +119,15 @@ public class eat : MonoBehaviour
 
             StartCoroutine(ChangeMaterialIce());
         }
-        
+
+        if (hitColliders[index].CompareTag("EnemyAir"))
+        {
+            Destroy(hitColliders[index].gameObject);
+            powerOfFire = true;
+
+            StartCoroutine(ChangeMaterialAir());
+        }
+
     }
 
 

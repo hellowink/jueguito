@@ -9,7 +9,7 @@ public class portal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("youDied");
+            SceneManager.LoadScene("youWon");
         }
     }
 }
