@@ -11,7 +11,7 @@ public class pastilla : MonoBehaviour
         {
             grajea = true;
             Destroy(other.gameObject);
-            Invoke(nameof(DesactivarGrajea), 6f);
+            Invoke(nameof(DesactivarGrajea), 10f);
         }
     }
 
