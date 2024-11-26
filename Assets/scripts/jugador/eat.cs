@@ -14,7 +14,7 @@ public class eat : MonoBehaviour
     public Material materialFireMonster;
     public Material materialIceWall;
     private bool _isFurby = true; 
-    private float _timeChangeMaterial = 4f;
+    private float _timeChangeMaterial = 10f;
     public LayerMask layer;
     void Update()
     {
