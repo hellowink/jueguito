@@ -25,6 +25,8 @@ public class airEnemy : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, _player.position);
         if (distancia <= radioVision)
         {
+            transform.LookAt(new Vector3(_player.position.x, transform.position.y, _player.position.z));
+
             transform.position += (transform.position - _player.position).normalized * speedMovement * Time.deltaTime;
 
             if (Time.time > _timeLastShot + shootTimer)

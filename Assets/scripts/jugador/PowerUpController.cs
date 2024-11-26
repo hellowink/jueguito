@@ -11,6 +11,7 @@ public class PowerUpController : MonoBehaviour
     public string enemyTag = "Enemy"; 
     public string enemyTagIce = "EnemyIce";
     public string bulletTag = "bullet";
+    public string enemyTagAir = "EnemyAir";
     public bool niumNium= false;
     void Update()
     {
@@ -36,6 +37,12 @@ public class PowerUpController : MonoBehaviour
         {
             powerUpBar.SumarPoder(2);
             Destroy(collision.gameObject); 
+        }
+
+        if (!changeBall.normalForm && collision.gameObject.tag == enemyTagAir)
+        {
+            powerUpBar.SumarPoder(2);
+            Destroy(collision.gameObject);
         }
 
         if (changeBall.normalForm && collision.gameObject.tag == enemyTag)

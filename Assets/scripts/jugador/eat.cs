@@ -5,6 +5,7 @@ using UnityEngine;
 public class eat : MonoBehaviour
 
 {
+    public playerMovement playerMovement;  
     public PowerUpController PowerUpController;
     public changeBall changeBall;
     public bool powerOfFire = false;
@@ -124,7 +125,7 @@ public class eat : MonoBehaviour
         {
             Destroy(hitColliders[index].gameObject);
             powerOfFire = true;
-
+            playerMovement.jumpForce = 100;
             StartCoroutine(ChangeMaterialAir());
         }
 
